@@ -32,6 +32,8 @@ if (getenv('LANDO_INFO')) {
     define('DB_PASSWORD', $database_config->creds->password);
     /** MySQL hostname */
     define('DB_HOST', $database_config->internal_connection->host);
+    define( 'DB_COLLATE', '' );
+    define( 'DB_CHARSET', 'utf8' );
 
     /** URL routing (Optional, may not be necessary) */
     // define('WP_HOME','http://mysite.lndo.site');
