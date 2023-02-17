@@ -1,0 +1,19 @@
+{
+    "name": "dev/demo",
+    "type": "project",
+    "require": {
+        "roots/sage": "^10.4",
+        "composer/installers": "^2.2",
+        "roots/acorn": "^2.1"
+    },
+    "extra": {
+        "installer-paths": {
+            "wp-content/themes/{$name}": ["roots/sage"]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}
