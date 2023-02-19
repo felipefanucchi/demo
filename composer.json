@@ -1,19 +1,48 @@
 {
-    "name": "dev/demo",
-    "type": "project",
-    "require": {
-        "roots/sage": "^10.4",
-        "composer/installers": "^2.2",
-        "roots/acorn": "^2.1"
-    },
+    "name": "demo/sage",
+    "license": "proprietary",
+    "authors": [
+      {
+        "name": "Felipe Fanucchi",
+        "email": "felipefanucchi2010@hotmail.com",
+        "homepage": "https://github.com/felipefanucchi"
+      }
+    ],
+    "repositories": [
+      {
+        "type": "composer",
+        "url": "https://wpackagist.org"
+      },
+      {
+        "type": "package",
+        "package": {
+          "name": "wp-plugins/advanced-custom-fields-pro",
+          "type": "wordpress-plugin",
+          "version": "5.12.2",
+          "dist": {
+            "url": "https://github.com/wp-premium/advanced-custom-fields-pro/archive/refs/heads/master.zip",
+            "type": "zip"
+          }
+        }
+      }
+    ],
     "extra": {
-        "installer-paths": {
-            "wp-content/themes/{$name}": ["roots/sage"]
-        }
+      "installer-paths": {
+        "./wp-content/plugins/{$name}/": [
+          "type:wordpress-plugin"
+        ]
+      }
     },
+    "require": {
+      "composer/installers": "dev-main",
+      "vlucas/phpdotenv": "5.4.1",
+      "wp-plugins/advanced-custom-fields-pro": "5.12.2",
+      "wpackagist-plugin/safe-svg": "2.0.1"
+    },
+    "prefer-stable": true,
     "config": {
-        "allow-plugins": {
-            "composer/installers": true
-        }
+      "allow-plugins": {
+        "composer/installers": true
+      }
     }
-}
+  }
