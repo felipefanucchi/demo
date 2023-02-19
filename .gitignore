@@ -4,37 +4,32 @@
 cache
 
 #---------------------------
-# WordPress general
-#---------------------------
-/index.php
-
-#---------------------------
 # WordPress themes
 #---------------------------
-/themes/*
-!/themes/demo
+wp-content/themes/*
+!wp-content/themes/sage
 
 #---------------------------
 # WordPress plugins
 #---------------------------
-/plugins/*
-!/plugins/custom-plugin
+wp-content/plugins/*
+!wp-content/plugins/custom-plugin
 
 #---------------------------
 # WP MU plugins: these are
 # managed by the platform.
 #---------------------------
-/mu-plugins/
+mu-plugins/
 
 #---------------------------
 # WP uploads directory
 #---------------------------
-/uploads/
+uploads/
 
 #---------------------------
 # WP upgrade files
 #---------------------------
-/upgrade/
+upgrade/
 
 #---------------------------
 # OS-specific files

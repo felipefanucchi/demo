@@ -7,3 +7,9 @@ config:
   webroot: .
   database: mysql:5.7
   xdebug: true
+
+tooling:
+  install:wordpress:
+    service: appserver
+    cmd:
+      - wp core download && wp config create --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost=database
