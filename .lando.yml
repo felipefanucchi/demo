@@ -1,14 +1,20 @@
-name: demo
+name: ${LANDO_APP_NAME}
 recipe: wordpress
 config:
   php: '8.0'
   composer_version: '2.0.7'
   via: apache:2.4
   webroot: .
-  database: mysql:5.7
   xdebug: true
 
 services:
+  database:
+    type: mysql:5.7
+    portforward: false
+    creds:
+      user: ${DB_USER}
+      password: ${DB_PASSWORD}
+      database: ${DB_NAME}
   node:
     type: node:16
 
@@ -16,7 +22,7 @@ tooling:
   add:wordpress:
     service: appserver
     cmd:
-      - wp core download && wp config create --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost=database
+      - wp core download
    
   add:sage:
     service: appserver
