@@ -21,7 +21,7 @@ tooling:
   add:sage:
     service: appserver
     cmd:
-      - cd /app/wp-content/themes cd ${LANDO_APP_NAME} && composer create-project roots/sage ${LANDO_APP_NAME}
+      - cd /app/wp-content/themes && cd ${LANDO_APP_NAME} && composer create-project roots/sage ${LANDO_APP_NAME}
 
   install:sage:
     service: appserver
