@@ -7,7 +7,7 @@ cache
 # WordPress themes
 #---------------------------
 wp-content/themes/*
-!wp-content/themes/sage
+!wp-content/themes/demo
 
 #---------------------------
 # WordPress plugins
