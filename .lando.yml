@@ -13,3 +13,8 @@ tooling:
     service: appserver
     cmd:
       - wp core download && wp config create --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost=database
+  
+  install:sage:
+    service: appserver
+    cmd:
+      - cd /app/wp-content/themes && read -p "What's the name of the theme? " theme && mkdir ${theme} && cd ${theme} && composer create-project roots/sage ${theme}
