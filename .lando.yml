@@ -44,7 +44,7 @@ tooling:
     cmd: 
       - cd /app/wp-content/themes/${LANDO_APP_NAME} && npm i && npm run build
   
-  watch:
+  dev:
     service: node
     cmd:
       - cd /app/wp-content/themes/${LANDO_APP_NAME} && npm run dev
