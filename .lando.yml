@@ -1,4 +1,4 @@
-name: ${LANDO_APP_NAME}
+name: demo
 recipe: wordpress
 config:
   php: '8.0'

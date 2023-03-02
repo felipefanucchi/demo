@@ -1,26 +1,25 @@
 <?php
 
-namespace App\Blocks;
+namespace DummyNamespace;
 
-use App\Fields\Partials\ListItems;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Example extends Block
+class DummyClass extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Example';
+    public $name = 'DummyTitle';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'A simple Example block.';
+    public $description = 'A simple DummyTitle block.';
 
     /**
      * The block category.
@@ -91,30 +90,14 @@ class Example extends Block
      * @var array
      */
     public $supports = [
-        'align' => false,
+        'align' => true,
         'align_text' => false,
         'align_content' => false,
         'full_height' => false,
-        'anchor' => true,
-        'mode' => true,
+        'anchor' => false,
+        'mode' => false,
         'multiple' => true,
         'jsx' => true,
-        'typography' => [
-            'fluid' => true,
-            'fontSize' => true,
-            'fontFamily' => true
-        ],
-        'spacing' => [
-            // 'margin' => true,
-            // 'block_gap' => true,
-            'padding' => true
-        ],
-        'color' => [
-            'background' => true,
-            'gradients' => true,
-            'text' => true,
-            // 'customGradient' => true
-        ]
     ];
 
     /**
@@ -166,12 +149,14 @@ class Example extends Block
      */
     public function fields()
     {
-        $example = new FieldsBuilder('example');
+        $DummyCamel = new FieldsBuilder('DummySnake');
 
-        $example
-            ->addFields($this->get(ListItems::class));
+        $DummyCamel
+            ->addRepeater('items')
+                ->addText('item')
+            ->endRepeater();
 
-        return $example->build();
+        return $DummyCamel->build();
     }
 
     /**
