@@ -1,0 +1,38 @@
+.wp-block-hero {
+  $vertical_positions: (
+    'top': 'start',
+    'center': 'center',
+    'bottom': 'end'
+  );
+
+  @each $position, $pos_value in $vertical_positions {
+    &.is-position-#{$position} .inner-blocks-wrapper {
+      @apply justify-#{$pos_value};
+    }
+  }
+
+  $horizontal_alignments: (
+    'left': 'start',
+    'center': 'center',
+    'right': 'end'
+  );
+
+  @each $alignment, $hor_value in $horizontal_alignments {
+    &.align#{$alignment} .inner-blocks-wrapper {
+      @apply items-#{$hor_value};
+    }
+  }
+
+  $text_alignments: (
+    'left': 'left',
+    'center': 'center',
+    'right': 'right'
+  );
+
+  @each $alignment, $text_value in $text_alignments {
+    &.align-text-#{$alignment} .inner-blocks-wrapper {
+      @apply text-#{$text_value};
+    }
+  }
+
+}

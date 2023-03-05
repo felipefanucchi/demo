@@ -125,7 +125,7 @@ class Hero extends Block
      * @var array
      */
     public $example = [
-        // 'background' => asset('images/hero/bg-default.jpeg')
+        'background' => ''
     ];
 
     /**
@@ -150,10 +150,11 @@ class Hero extends Block
     {
         $hero = new FieldsBuilder('hero');
 
-        $hero->addImage('background', [
-            'instructions' => 'Recommended size: <code>1920x1080</code>',
-            'required' => true,
-        ]);
+        $hero
+            ->addImage('background', [
+                'instructions' => 'Recommended size: <code>1920x1080</code>',
+                'required' => true,
+            ]);
 
         return $hero->build();
     }
