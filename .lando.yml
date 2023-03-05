@@ -39,6 +39,11 @@ tooling:
     cmd: 
       - composer install
 
+  assets:install:
+    service: node
+    cmd:
+      - cd /app/wp-content/themes/${LANDO_APP_NAME} && npm i
+
   build:
     service: node
     cmd: 
