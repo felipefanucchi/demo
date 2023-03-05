@@ -1,3 +1,11 @@
+import {basename} from 'node:path'
+
+String.prototype.toKebabCase = function () {
+  return this.match(
+    /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g,
+  ).join('-');
+};
+
 /**
  * Build configuration
  *
@@ -8,14 +16,39 @@
  * @param {Bud} app
  */
 export default async (app) => {
+  const blocksEntrypoint = 'app/Blocks/*.php';
+
+  /**
+   * Get list of entrypoints for blocks
+   */
+  const blocksAssets = Object.assign(
+    ...app.globSync(blocksEntrypoint).map(block => {
+
+      const name = basename(block, '.php')
+        .toKebabCase()
+        .toLowerCase();
+
+      const files = app.globSync([
+        `@scripts/blocks/${name}.js`,
+        `@styles/blocks/${name}.css`
+      ]);
+
+      if (files.length !== 0) {
+        return {[name]: files};
+      }
+    }).filter(block => !!block) //Return only truthy values
+  )
+
   /**
    * Application entrypoints
    * @see {@link https://bud.js.org/docs/bud.entry/}
    */
+
   app
     .entry({
       app: ['@scripts/app', '@styles/app'],
       editor: ['@scripts/editor', '@styles/editor'],
+      ...blocksAssets
     })
 
     /**
@@ -34,7 +67,7 @@ export default async (app) => {
      * Proxy origin (`WP_HOME`)
      * @see {@link https://bud.js.org/docs/bud.proxy/}
      */
-    .proxy('http://example.test')
+    .proxy('http://demo.lndo.site')
 
     /**
      * Development origin
@@ -66,22 +99,12 @@ export default async (app) => {
         defaultPalette: false,
         duotone: [],
       },
-      custom: {
-        spacing: {},
-        typography: {
-          'font-size': {},
-          'line-height': {},
-        },
-      },
-      spacing: {
-        padding: true,
-        units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
-      },
       typography: {
+        fluid: true,
         customFontSize: false,
       },
     })
-    .useTailwindColors()
+    .useTailwindColors(true) // true limits the theme.json colors option to the extend {} at tailwind config
     .useTailwindFontFamily()
     .useTailwindFontSize()
     .enable();
