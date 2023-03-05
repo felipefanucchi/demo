@@ -30,7 +30,7 @@ export default async (app) => {
 
       const files = app.globSync([
         `@scripts/blocks/${name}.js`,
-        `@styles/blocks/${name}.css`
+        `@styles/blocks/${name}.{scss,css}`
       ]);
 
       if (files.length !== 0) {
@@ -43,7 +43,6 @@ export default async (app) => {
    * Application entrypoints
    * @see {@link https://bud.js.org/docs/bud.entry/}
    */
-
   app
     .entry({
       app: ['@scripts/app', '@styles/app'],
@@ -107,5 +106,5 @@ export default async (app) => {
     .useTailwindColors(true) // true limits the theme.json colors option to the extend {} at tailwind config
     .useTailwindFontFamily()
     .useTailwindFontSize()
-    .enable();
+    .enable()
 };
