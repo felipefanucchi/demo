@@ -91,29 +91,21 @@ class Example extends Block
      * @var array
      */
     public $supports = [
-        'align' => false,
-        'align_text' => false,
-        'align_content' => false,
-        'full_height' => false,
+        'align' => true,
+        'align_text' => true,
+        'align_content' => true,
+        'full_height' => true,
         'anchor' => true,
         'mode' => true,
         'multiple' => true,
         'jsx' => true,
         'typography' => [
-            'fluid' => true,
             'fontSize' => true,
             'fontFamily' => true
         ],
-        'spacing' => [
-            // 'margin' => true,
-            // 'block_gap' => true,
-            'padding' => true
-        ],
         'color' => [
             'background' => true,
-            'gradients' => true,
             'text' => true,
-            // 'customGradient' => true
         ]
     ];
 
