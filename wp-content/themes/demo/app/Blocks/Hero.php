@@ -125,7 +125,7 @@ class Hero extends Block
      * @var array
      */
     public $example = [
-        'background' => ''
+        'background' => false
     ];
 
     /**

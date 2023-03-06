@@ -105,7 +105,7 @@ return [
     */
 
     'block_pattern' => [
-        'demo/hero-group' => [
+        'demo/hero' => [
             'title' => 'Page Hero',
             'description' => 'Draw attention to the main focus of the page, and highlight key CTAs',
             'categories' => ['all'],

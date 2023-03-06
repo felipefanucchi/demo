@@ -176,6 +176,6 @@ class DummyClass extends Block
      */
     public function enqueue()
     {
-        //
+      bundle('DummySlug')->enqueue();
     }
 }
