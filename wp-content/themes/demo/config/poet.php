@@ -108,7 +108,12 @@ return [
         'demo/hero' => [
             'title' => 'Page Hero',
             'description' => 'Draw attention to the main focus of the page, and highlight key CTAs',
-            'categories' => ['all'],
+            'categories' => ['page-header', 'all'],
+        ],
+        'demo/slider' => [
+            'title' => 'Page Slider',
+            'description' => 'Draw attention to the main focus of the page, and highlight key CTAs',
+            'categories' => ['page-header', 'all'],
         ],
     ],
 
@@ -123,8 +128,11 @@ return [
     */
 
     'block_pattern_category' => [
-        'all' => [
-            'label' => 'All Patterns',
+        'page-header' => [
+            'label' => 'Page Header',
+        ],
+        'All' => [
+            'label' => 'All',
         ],
     ],
 

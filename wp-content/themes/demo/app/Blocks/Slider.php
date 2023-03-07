@@ -5,24 +5,24 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-use function Roots\asset;
+
 use function Roots\bundle;
 
-class Hero extends Block
+class Slider extends Block
 {
     /**
      * The block name.
      *
      * @var string
      */
-    public $name = 'Hero';
+    public $name = 'Slider';
 
     /**
      * The block description.
      *
      * @var string
      */
-    public $description = 'A simple Hero block.';
+    public $description = 'A simple Slider block.';
 
     /**
      * The block category.
@@ -97,6 +97,7 @@ class Hero extends Block
         'align_text' => true,
         'align_content' => true,
         'full_height' => true,
+        'anchor' => true,
         'mode' => true,
         'multiple' => true,
         'jsx' => true,
@@ -125,7 +126,11 @@ class Hero extends Block
      * @var array
      */
     public $example = [
-        'background' => 'images/hero/example.jpeg'
+        'items' => [
+            ['background' => 'images/slider/example.jpeg'],
+            ['background' => 'images/slider/example.jpeg'],
+            ['background' => 'images/slider/example.jpeg'],
+        ],
     ];
 
     /**
@@ -136,7 +141,7 @@ class Hero extends Block
     public function with()
     {
         return [
-            'background' => get_field('background') ?: asset($this->example['background']),
+            'items' => $this->items(),
         ];
     }
 
@@ -147,15 +152,28 @@ class Hero extends Block
      */
     public function fields()
     {
-        $hero = new FieldsBuilder('hero');
+        $slider = new FieldsBuilder('slider');
 
-        $hero
-            ->addImage('background', [
-                'instructions' => 'Recommended size: <code>1920x1080</code>',
-                'required' => true,
-            ]);
+        $slider
+            ->addRepeater('items')
+                ->addImage('background', [
+                    'instructions' => 'Recommended size: <code>1920x1080</code>',
+                    'required' => true
+                ])
+                ->addWysiwyg('content')
+            ->endRepeater();
 
-        return $hero->build();
+        return $slider->build();
+    }
+
+    /**
+     * Return the items field.
+     *
+     * @return array
+     */
+    public function items()
+    {
+        return get_field('items') ?: $this->example['items'];
     }
 
     /**
@@ -165,6 +183,7 @@ class Hero extends Block
      */
     public function enqueue()
     {
-        bundle('hero')->enqueue();
+        bundle('swiper')->enqueue()->enqueueCss();
+        bundle('slider')->enqueue()->enqueueCss('all', ['swiper']);
     }
 }

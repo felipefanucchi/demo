@@ -1,4 +1,4 @@
-.wp-block-hero {
+.wp-block-slider {
   $vertical_positions: (
     'top': 'start',
     'center': 'center',
@@ -6,7 +6,7 @@
   );
 
   @each $position, $pos_value in $vertical_positions {
-    &.is-position-#{$position} .inner-blocks-wrapper {
+    &.is-position-#{$position} .rich-text {
       @apply justify-#{$pos_value};
     }
   }
@@ -18,7 +18,7 @@
   );
 
   @each $alignment, $hor_value in $horizontal_alignments {
-    &.align#{$alignment} .inner-blocks-wrapper {
+    &.align#{$alignment} .rich-text {
       @apply items-#{$hor_value};
     }
   }
@@ -30,7 +30,7 @@
   );
 
   @each $alignment, $text_value in $text_alignments {
-    &.align-text-#{$alignment} .inner-blocks-wrapper {
+    &.align-text-#{$alignment} .rich-text {
       @apply text-#{$text_value};
     }
   }

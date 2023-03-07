@@ -234,8 +234,8 @@
         }
       ]
     },
+    "background": false,
     "typography": {
-      "fluid": true,
       "customFontSize": false,
       "fontFamilies": [
         {

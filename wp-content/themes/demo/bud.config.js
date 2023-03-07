@@ -47,6 +47,7 @@ export default async (app) => {
     .entry({
       app: ['@scripts/app', '@styles/app'],
       editor: ['@scripts/editor', '@styles/editor'],
+      swiper: ['@styles/lib/swiper.scss'],
       ...blocksAssets
     })
 
@@ -98,8 +99,8 @@ export default async (app) => {
         defaultPalette: false,
         duotone: [],
       },
+      background: false,
       typography: {
-        fluid: true,
         customFontSize: false,
       },
     })
