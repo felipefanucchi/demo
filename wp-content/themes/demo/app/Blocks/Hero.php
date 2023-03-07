@@ -125,7 +125,7 @@ class Hero extends Block
      * @var array
      */
     public $example = [
-        'background' => false
+        'background' => 'images/hero/example.jpeg'
     ];
 
     /**
@@ -137,7 +137,7 @@ class Hero extends Block
     {
         return [
             'background' =>
-                get_field('background') ?: $this->example['background'],
+                get_field('background') ?: asset($this->example['background']),
         ];
     }
 
