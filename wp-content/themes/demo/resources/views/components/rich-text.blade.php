@@ -1,3 +1,3 @@
-<div class="rich-text prose prose-invert {{$attributes['class']}}">
+<div class="rich-text prose {{ $style }} {{$attributes['class']}}">
   {!! $content !!}
 </div>

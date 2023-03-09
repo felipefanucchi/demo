@@ -49,6 +49,9 @@ module.exports = {
             p: {
               'line-height': '1.5rem',
             },
+
+            // Max-width
+            maxWidth: null, // Remove the .prose default max width
           },
         },
       }),

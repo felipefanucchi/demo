@@ -2,7 +2,6 @@
 
 namespace App\Fields;
 
-use App\Fields\Partials\ListItems;
 use Log1x\AcfComposer\Field;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
@@ -19,9 +18,6 @@ class Example extends Field
 
         $example
             ->setLocation('post_type', '==', 'post');
-
-        $example
-            ->addFields($this->get(ListItems::class));
 
         return $example->build();
     }

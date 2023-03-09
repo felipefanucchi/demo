@@ -7,7 +7,7 @@
 
           <x-rich-text
             class="container mx-auto inner-blocks-wrapper relative h-full flex flex-col z-20"
-            style="light"
+            :style="$item['style']"
             :content="$item['content']"
           />
         </div>

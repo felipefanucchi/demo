@@ -2,6 +2,7 @@
 
 namespace App\Blocks;
 
+use App\Fields\Partials\ContentStyle;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
@@ -104,23 +105,6 @@ class Slider extends Block
     ];
 
     /**
-     * The block styles.
-     *
-     * @var array
-     */
-    public $styles = [
-        // [
-        //     'name' => 'light',
-        //     'label' => 'Light',
-        //     'isDefault' => true,
-        // ],
-        // [
-        //     'name' => 'dark',
-        //     'label' => 'Dark',
-        // ]
-    ];
-
-    /**
      * The block preview example data.
      *
      * @var array
@@ -160,6 +144,7 @@ class Slider extends Block
                     'instructions' => 'Recommended size: <code>1920x1080</code>',
                     'required' => true
                 ])
+                ->addFields($this->get(ContentStyle::class))
                 ->addWysiwyg('content')
             ->endRepeater();
 
