@@ -37,28 +37,14 @@ class Slider extends Block
      *
      * @var string|array
      */
-    public $icon = 'editor-ul';
+    public $icon = 'slides';
 
     /**
      * The block keywords.
      *
      * @var array
      */
-    public $keywords = [];
-
-    /**
-     * The block post type allow list.
-     *
-     * @var array
-     */
-    public $post_types = [];
-
-    /**
-     * The parent block type allow list.
-     *
-     * @var array
-     */
-    public $parent = [];
+    public $keywords = ['slide', 'carousel', 'page header'];
 
     /**
      * The default block mode.
@@ -66,27 +52,6 @@ class Slider extends Block
      * @var string
      */
     public $mode = 'preview';
-
-    /**
-     * The default block alignment.
-     *
-     * @var string
-     */
-    public $align = '';
-
-    /**
-     * The default block text alignment.
-     *
-     * @var string
-     */
-    public $align_text = '';
-
-    /**
-     * The default block content alignment.
-     *
-     * @var string
-     */
-    public $align_content = '';
 
     /**
      * The supported block features.

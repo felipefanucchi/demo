@@ -44,48 +44,12 @@ class Hero extends Block
      * @var array
      */
     public $keywords = [];
-
-    /**
-     * The block post type allow list.
-     *
-     * @var array
-     */
-    public $post_types = [];
-
-    /**
-     * The parent block type allow list.
-     *
-     * @var array
-     */
-    public $parent = [];
-
     /**
      * The default block mode.
      *
      * @var string
      */
     public $mode = 'preview';
-
-    /**
-     * The default block alignment.
-     *
-     * @var string
-     */
-    public $align = '';
-
-    /**
-     * The default block text alignment.
-     *
-     * @var string
-     */
-    public $align_text = '';
-
-    /**
-     * The default block content alignment.
-     *
-     * @var string
-     */
-    public $align_content = '';
 
     /**
      * The supported block features.
@@ -100,23 +64,6 @@ class Hero extends Block
         'mode' => true,
         'multiple' => true,
         'jsx' => true,
-    ];
-
-    /**
-     * The block styles.
-     *
-     * @var array
-     */
-    public $styles = [
-        // [
-        //     'name' => 'light',
-        //     'label' => 'Light',
-        //     'isDefault' => true,
-        // ],
-        // [
-        //     'name' => 'dark',
-        //     'label' => 'Dark',
-        // ]
     ];
 
     /**
